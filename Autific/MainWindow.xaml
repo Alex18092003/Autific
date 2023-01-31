@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Autific"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ПРОТОТИП ДВУХФАКТОРНОЙ АУТЕНТИФИКАЦИИ" Height="300" Width="400">
     <Grid>
-        
+        <Frame Name="FrameMain" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

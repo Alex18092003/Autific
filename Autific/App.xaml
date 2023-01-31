@@ -4,6 +4,21 @@
              xmlns:local="clr-namespace:Autific"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Wheat"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

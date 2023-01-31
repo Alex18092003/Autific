@@ -10,21 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Autific
+namespace Autific.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для WindowKod.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WindowKod : Window
     {
-        public MainWindow()
+        public WindowKod()
         {
             InitializeComponent();
-            Classes.FrameClass.FrameMain = FrameMain;
-            Classes.FrameClass.FrameMain.Navigate(new Pages.PageAuthorization());
+        }
+
+        private void buttinInput_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textboxKod_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
