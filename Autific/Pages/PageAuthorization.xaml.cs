@@ -36,7 +36,7 @@ namespace Autific.Pages
                     Random rnd = new Random();
                     int numbers = rnd.Next(10000, 99999);
                     MessageBox.Show($"Ваш числовой код : {numbers}\nПожалуйста, запомните его!", "Информация");
-                    Windows.WindowKod windowKod = new Windows.WindowKod();
+                    Windows.WindowKod windowKod = new Windows.WindowKod(numbers.ToString());
                     windowKod.ShowDialog();
                     Classes.FrameClass.FrameMain.Navigate(new PageAuthorization());
                 }
