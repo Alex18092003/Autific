@@ -49,29 +49,6 @@ namespace Autific.Windows
             count--;
         }
 
-        private void buttinInput_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                    if (textboxKod.Text == code)
-                    {
-                        Pages.PageAuthorization.kodd = 0;
-                        MessageBox.Show("Успешный вход", "Информация");
-                        this.Close();
-                    }
-                    else
-                    {
-                    Pages.PageAuthorization.kodd ++;
-                    MessageBox.Show("Код неверный", "Информация");
-                        this.Close();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Что-то пошло не так с переходом", "Ошибка");
-            }
-
-        }
 
 
         private void textboxKod_TextChanged(object sender, TextChangedEventArgs e)

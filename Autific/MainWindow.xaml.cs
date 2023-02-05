@@ -25,6 +25,7 @@ namespace Autific
             InitializeComponent();
             Classes.FrameClass.FrameMain = FrameMain;
             Classes.FrameClass.FrameMain.Navigate(new Pages.PageAuthorization());
+            
         }
     }
 }

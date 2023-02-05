@@ -13,7 +13,7 @@
                 
             </Canvas>
             <TextBox Name="textboxCaptcha" Margin="0,10,0,0" ></TextBox>
-            <Button Name="buttonCaptcha" Margin="0,10,0,0">Ввод</Button>
+            <Button Click="buttonCaptcha_Click" Name="buttonCaptcha" Margin="0,10,0,0">Ввод</Button>
         </StackPanel>
     </Grid>
 </Window>

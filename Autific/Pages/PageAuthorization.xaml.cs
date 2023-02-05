@@ -25,7 +25,7 @@ namespace Autific.Pages
         string password = "111";
 
         public static int kodd = 0;
-        int count = 60;
+        int count = 10;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
 
         public PageAuthorization()
@@ -102,8 +102,10 @@ namespace Autific.Pages
             }
             else if(kodd == 2)
             {
+                kodd++;
                 Windows.WindowCaptcha windowKod = new Windows.WindowCaptcha();
                 windowKod.ShowDialog();
+                
             }
         }
     }
