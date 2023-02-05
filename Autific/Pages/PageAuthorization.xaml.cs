@@ -23,7 +23,8 @@ namespace Autific.Pages
     {
         string login = "111";
         string password = "111";
-        public static int kodd = 1;
+
+        public static int kodd = 0;
         int count = 60;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
 
@@ -32,9 +33,12 @@ namespace Autific.Pages
             InitializeComponent();
             
 
-            if(kodd != 1)
+            if(kodd != 0)
             {
+               
                 buttonAuthorization.IsEnabled = false;
+                textLogin.IsEnabled = false;
+                tsxtPassword.IsEnabled = false;
                 textTime.Visibility = Visibility.Visible;
                 dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
                 dispatcherTimer.Tick += new EventHandler(Back);
@@ -86,15 +90,21 @@ namespace Autific.Pages
 
         private void buttonNewKod_Click(object sender, RoutedEventArgs e)
         {
-            Random rnd = new Random();
-            int numbers = rnd.Next(10000, 99999);
-            MessageBox.Show($"Ваш числовой код : {numbers}\nПожалуйста, запомните его!", "Информация");
-            Windows.WindowKod windowKod = new Windows.WindowKod(numbers.ToString());
-            windowKod.ShowDialog();
+            if (kodd != 2)
+            {
 
-
-
-            Classes.FrameClass.FrameMain.Navigate(new PageAuthorization());
+                Random rnd = new Random();
+                int numbers = rnd.Next(10000, 99999);
+                MessageBox.Show($"Ваш числовой код : {numbers}\nПожалуйста, запомните его!", "Информация");
+                Windows.WindowKod windowKod = new Windows.WindowKod(numbers.ToString());
+                windowKod.ShowDialog();
+                Classes.FrameClass.FrameMain.Navigate(new PageAuthorization());
+            }
+            else if(kodd == 2)
+            {
+                Windows.WindowCaptcha windowKod = new Windows.WindowCaptcha();
+                windowKod.ShowDialog();
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Autific.Windows
         {
             if(count == 0)
             {
-                Pages.PageAuthorization.kodd = 0;
+                Pages.PageAuthorization.kodd ++;
                 this.Close();
                 
             }
@@ -55,13 +55,13 @@ namespace Autific.Windows
             {
                     if (textboxKod.Text == code)
                     {
-                        Pages.PageAuthorization.kodd = 1;
+                        Pages.PageAuthorization.kodd = 0;
                         MessageBox.Show("Успешный вход", "Информация");
                         this.Close();
                     }
                     else
                     {
-                    Pages.PageAuthorization.kodd = 0;
+                    Pages.PageAuthorization.kodd ++;
                     MessageBox.Show("Код неверный", "Информация");
                         this.Close();
                 }
@@ -83,7 +83,7 @@ namespace Autific.Windows
                 {
                     if (textboxKod.Text == code)
                     {
-                        Pages.PageAuthorization.kodd = 1;
+                        Pages.PageAuthorization.kodd = 0;
                         MessageBox.Show("Успешный вход", "Информация");
                         this.Close();
                     }
