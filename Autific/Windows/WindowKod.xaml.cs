@@ -22,11 +22,12 @@ namespace Autific.Windows
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         string code;
-        int count = 10;
+        int  count = 10;
+
         public WindowKod(string code)
         {
             InitializeComponent();
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Tick += new EventHandler(Back);
             dispatcherTimer.Start();
             this.code = code;
@@ -37,7 +38,9 @@ namespace Autific.Windows
         {
             if(count == 0)
             {
+                Pages.PageAuthorization.kodd = 0;
                 this.Close();
+                
             }
             else
             {
@@ -48,21 +51,49 @@ namespace Autific.Windows
 
         private void buttinInput_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                    if (textboxKod.Text == code)
+                    {
+                        Pages.PageAuthorization.kodd = 1;
+                        MessageBox.Show("Успешный вход", "Информация");
+                        this.Close();
+                    }
+                    else
+                    {
+                    Pages.PageAuthorization.kodd = 0;
+                    MessageBox.Show("Код неверный", "Информация");
+                        this.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так с переходом", "Ошибка");
+            }
 
         }
 
-        
+
         private void textboxKod_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
                 textboxKod.MaxLength = 5;
-
+                if (textboxKod.MaxLength == 5)
+                {
+                    if (textboxKod.Text == code)
+                    {
+                        Pages.PageAuthorization.kodd = 1;
+                        MessageBox.Show("Успешный вход", "Информация");
+                        this.Close();
+                    }
+                }
             }
             catch
-            {
-                
+            { 
+                MessageBox.Show("Что-то пошло не так с проверкой кода", "Ошибка");
             }
+               
         }
 
         private void textboxKod_PreviewTextInput(object sender, TextCompositionEventArgs e)

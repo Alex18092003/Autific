@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Autific.Pages
 {
@@ -20,14 +21,45 @@ namespace Autific.Pages
     /// </summary>
     public partial class PageAuthorization : Page
     {
+        string login = "111";
+        string password = "111";
+        public static int kodd = 1;
+        int count = 60;
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+
         public PageAuthorization()
         {
             InitializeComponent();
-        }
-        string login = "111";
-        string password = "111";
+            
 
-        private void buttonAuthorization_Click(object sender, RoutedEventArgs e)
+            if(kodd != 1)
+            {
+                buttonAuthorization.IsEnabled = false;
+                textTime.Visibility = Visibility.Visible;
+                dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+                dispatcherTimer.Tick += new EventHandler(Back);
+                dispatcherTimer.Start();
+                
+            }
+        }
+        private void Back(object sender, EventArgs e)
+        {
+            if (count == 0)
+            {
+                buttonNewKod.Visibility = Visibility.Visible;
+                dispatcherTimer.Stop();
+
+            }
+            else
+            {
+                textTime.Text = "Получить новый код можно будет через " + count + " секунд";
+            }
+            count--;
+        }
+
+
+
+            private void buttonAuthorization_Click(object sender, RoutedEventArgs e)
         {
             if(textLogin.Text == login)
             {
@@ -50,6 +82,19 @@ namespace Autific.Pages
             {
                 MessageBox.Show("Неверный логин введен", "Ошибка");
             }
+        }
+
+        private void buttonNewKod_Click(object sender, RoutedEventArgs e)
+        {
+            Random rnd = new Random();
+            int numbers = rnd.Next(10000, 99999);
+            MessageBox.Show($"Ваш числовой код : {numbers}\nПожалуйста, запомните его!", "Информация");
+            Windows.WindowKod windowKod = new Windows.WindowKod(numbers.ToString());
+            windowKod.ShowDialog();
+
+
+
+            Classes.FrameClass.FrameMain.Navigate(new PageAuthorization());
         }
     }
 }
